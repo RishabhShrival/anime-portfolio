@@ -46,7 +46,7 @@ export default function RotatingCarousel() {
 
 
   /*............Detail Of Project Animation...........*/
-  const showProjectsDetail = (index: number) => {
+  const showProjectsDetail = () => {
     if(titleTimeline3.current?.progress()==1){
         titleTimeline3.current?.reverse();
         return;
@@ -89,7 +89,7 @@ export default function RotatingCarousel() {
         return;
     }
     rotationTween.current?.pause();
-    showProjectsDetail(index);
+    showProjectsDetail();
 
   };
 

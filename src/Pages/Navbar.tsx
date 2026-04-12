@@ -57,7 +57,7 @@ export default function Navbar() {
       trigger: "body",
       start: "top top",
       end: "bottom bottom",
-      onUpdate: (self) => {
+      onUpdate: () => {
         const scrollY = window.scrollY;
         const windowHeight = window.innerHeight;
         
@@ -71,7 +71,7 @@ export default function Navbar() {
         if (!heroEl || !aboutEl || !experienceEl || !projectsEl || !contactsEl) return;
         
         // Calculate section positions
-        const heroRect = heroEl.getBoundingClientRect();
+        // const heroRect = heroEl.getBoundingClientRect();
         const aboutRect = aboutEl.getBoundingClientRect();
         const experienceRect = experienceEl.getBoundingClientRect();
         const projectsRect = projectsEl.getBoundingClientRect();
