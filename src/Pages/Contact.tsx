@@ -17,7 +17,6 @@ export default function Contact() {
       display: "inline-block",
       opacity: 0,
       x: -120,
-      filter: "blur(10px)",
     });
 
     const tl = gsap.timeline({
@@ -33,7 +32,6 @@ export default function Contact() {
     tl.to(chars, {
       x: 0,
       opacity: 1,
-      filter: "blur(0px)",
       stagger: 0.04,
       ease: "power3.out",
     });
@@ -63,37 +61,37 @@ export default function Contact() {
 
 
   return (
-    <section id="contacts" className="w-screen h-1/3 bg-gray-800 text-white">
+    <section id="contacts" className="w-screen h-1/3 text-white relative overflow-hidden">
     <div className="title relative w-screen overflow-hidden p-10 flex flex-row justify-around h-full">    
-      <div className="">
-        {/* Glow layer */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <h1 className="text-9xl font-bold contact-glow opacity-20 blur-2xl">
-            Let’s Connect
-          </h1>
-        </div>
-
+      <div className="z-0">
         {/* Main text */}
-        <div className="text-9xl font-bold contact-text relative z-10">
-          Let’s Connect
+        <div className="text-9xl font-bold contact-text opacity-95 relative">
+          Let's Connect
         </div>
+        {/* Glow layer */}
+        <div className="absolute inset-10 pl-30 z-0 pointer-events-none">
+          <h2 className="text-9xl font-bold contact-glow opacity-20 blur-2xl">
+            Let's Connect
+          </h2>
+        </div>
+        <p className="jp-label mt-4 relative z-10">未来を作ろう • Let's build the future.</p>
       </div>
 
       {/* Icons */}
       <div className="flex flex-col items-start justify-center gap-8">
-        <button className="flex flex-row items-center justify-center gap-5 bg-none border-none hover:scale-105 transition-transform duration-300 cursor-pointer" onClick={() => {
+        <button className="social-pill flex flex-row items-center justify-center gap-5 border-none hover:scale-105 transition-transform duration-300 cursor-pointer" onClick={() => {
           window.open('https://www.linkedin.com/in/rishabh-shrival-412490225/', '_blank');
         }}>
           <FontAwesomeIcon icon={faLinkedin} className="scale-200"/>
           <h3 className="text-3xl font-semibold">LinkedIn</h3>
         </button>
-        <button className="flex flex-row items-center justify-center gap-5 hover:scale-105 transition-transform duration-300 bg-none border-none cursor-pointer" onClick={() => {
+        <button className="social-pill flex flex-row items-center justify-center gap-5 hover:scale-105 transition-transform duration-300 border-none cursor-pointer" onClick={() => {
           window.open('https://github.com/RishabhShrival', '_blank');
         }}>
           <FontAwesomeIcon icon={faGithub} className="scale-200"/>
           <h3 className="text-3xl font-semibold">GitHub</h3>
         </button>
-        <button className="flex flex-row items-center justify-center gap-5 hover:scale-105 transition-transform duration-300 bg-none border-none cursor-pointer" onClick={() => {
+        <button className="social-pill flex flex-row items-center justify-center gap-5 hover:scale-105 transition-transform duration-300 border-none cursor-pointer" onClick={() => {
           window.open('mailto:rishabhshrival746@gmail.com', '_blank');
         }}>
           <FontAwesomeIcon icon={faEnvelope} className="scale-180"/>

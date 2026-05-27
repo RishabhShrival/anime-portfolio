@@ -7,32 +7,23 @@ gsap.registerPlugin(ScrollTrigger)
 
 export default function useLenisGsap() {
   useEffect(() => {
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const lenis = new Lenis({
-      duration: 1.5,
-      smoothWheel: true,
+      duration: prefersReducedMotion ? 0.8 : 1.1,
+      smoothWheel: !prefersReducedMotion,
     })
 
+    let frame = 0
     const raf = (time: number) => {
       lenis.raf(time)
-      requestAnimationFrame(raf)
+      frame = requestAnimationFrame(raf)
     }
-    requestAnimationFrame(raf)
+    frame = requestAnimationFrame(raf)
 
     lenis.on('scroll', ScrollTrigger.update)
 
-    // Example animation (remove/replace with your own)
-    gsap.from('.animate-box', {
-      y: 100,
-      opacity: 0,
-      duration: 1,
-      scrollTrigger: {
-        trigger: '.animate-box',
-        start: 'top 80%',
-        toggleActions: 'play none none reverse',
-      },
-    })
-
     return () => {
+      cancelAnimationFrame(frame)
       lenis.destroy()
       ScrollTrigger.getAll().forEach(trigger => trigger.kill())
     }

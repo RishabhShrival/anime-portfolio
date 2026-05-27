@@ -73,11 +73,12 @@ export default function About() {
   };
 
   return (
-    <section id="about" className="relative w-screen px-30 pt-20 flex gap-10 overflow-hidden">
+    <section id="about" className="relative w-screen h-screen px-30 pt-20 flex gap-10 overflow-hidden" onClick={animateText}>
       <div className="flex-3/5 py-30">
-        <p id="About-title" className="titleText">Hii, I am Rishabh</p>
+        <p className="jp-label mb-3">自己紹介 • Self Introduction</p>
+        <p id="About-title" className="titleText">Hi, I am <span className="grad-text">Rishabh</span></p>
 
-        <div className="text-white text-lg min-h-[220px]">
+        <div className="text-white/90 text-lg min-h-[220px] neo-card rounded-3xl p-8">
           <div className="about-subtitle">
             I am a tech-driven person who loves building, experimenting, and figuring out how things work. 
             Pretty chill by nature, but I get deeply focused when solving problems or coding. 
@@ -109,16 +110,15 @@ export default function About() {
           </div>
         </div>
 
-        <button
-          onClick={animateText}
-          className="mt-10 px-6 py-3 bg-amber-600 rounded-lg hover:bg-amber-700"
-        >
-          Next
-        </button>
+      </div>
+      <div className="opacity-70 absolute bottom-10 left-1/2 transform -translate-x-1/2 text-sm text-[var(--text-secondary)] cursor-default select-none">
+        click to view more
       </div>
 
-      <div className="flex-2/5">
-        <img src="/portfolio-anime.png" alt="anime developer" className="h-lvh object-contain" />
+      <div className="flex-2/5 flex items-center justify-center">
+        <div className="neo-card rounded-3xl p-3">
+          <img src="/portfolio-anime.png" alt="anime developer" className="h-lvh object-contain" />
+        </div>
       </div>
     </section>
   );
