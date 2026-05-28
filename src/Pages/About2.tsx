@@ -1,6 +1,7 @@
 import { useGSAP } from "@gsap/react";
 import Gsap from "gsap";
 import { SplitText, ScrollTrigger } from "gsap/all";
+import { useEffect } from "react";
 
 
 export default function About() {
@@ -84,8 +85,38 @@ export default function About() {
 
   },[])
 
+  function CustomCursor() {
+    const cursorSize = 16;
+    const mouse = {
+      x: 0,
+      y: 0,
+    };
+
+
+    //set the x,y values when mouse move
+    const handleCursor = (e: MouseEvent): void => {
+      const { clientX, clientY } = e;
+
+      mouse.x=(clientX - cursorSize / 2 + 5);
+      mouse.y=(clientY - cursorSize / 2 - 10);
+    };
+
+    //listen and call function when mouse move
+    useEffect(() => {
+      window.addEventListener("mousemove", handleCursor);
+
+      return () => {
+        window.removeEventListener("mousemove", handleCursor);
+      };
+    }, []);
+
+    return <div className="h-2 w-2 rounded-full bg-white"></div>;
+}
+
+
   return (
     <section id='about' className="relative w-screen h-full px-30 pt-20 flex flex-col justify-between md:flex-row gap-10 md:gap-30 overflow-hidden">
+      <CustomCursor/>
         <div className="flex-3/5 py-30">
             <p id="About-title" className="titleText">Hii, I am Rishabh</p>
             <div className="text-white text-lg md:text-xl min-h-[200px]">
@@ -115,10 +146,12 @@ export default function About() {
               </p>
             </div>
         </div>
-        <div className="flex-2/5">
+        <div className="figure flex-2/5">
             <img src="/portfolio-anime.png" alt="anime developer" className="h-lvh"/>
         </div>
     </section>
 
   );
 }
+
+

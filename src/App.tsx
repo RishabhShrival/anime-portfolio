@@ -34,6 +34,8 @@ function App() {
       cursorFrame = 0;
     };
 
+    
+
     const onMouseMove = (event: MouseEvent) => {
       cursorX = event.clientX;
       cursorY = event.clientY;
@@ -54,6 +56,8 @@ function App() {
         });
       }
     };
+
+
 
     window.addEventListener("mousemove", onMouseMove);
     window.addEventListener("scroll", onScroll, { passive: true });

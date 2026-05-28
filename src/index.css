@@ -115,11 +115,59 @@ h6 {
   pointer-events: none;
   left: 0;
   top: 0;
-  z-index: 100;
+  z-index: 10;
   background: radial-gradient(circle at center, rgba(56, 189, 248, 0.95) 0%, rgba(168, 85, 247, 0.65) 50%, rgba(168, 85, 247, 0) 100%);
   box-shadow: 0 0 20px rgba(56, 189, 248, 0.45), 0 0 42px rgba(168, 85, 247, 0.4);
   transform: translate3d(var(--cursor-x, 0px), var(--cursor-y, 0px), 0) translate(-50%, -50%);
   will-change: transform;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cursor-cover {
+  position: fixed;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  pointer-events: none;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  transform: translate3d(var(--cursor-x, 0px), var(--cursor-y, 0px), 0) translate(-50%, -50%);
+  will-change: transform;
+}
+
+.figure {
+  --figure-mask-x: 50%;
+  --figure-mask-y: 50%;
+  --figure-mask-radius: 0px;
+  --figure-mask-feather: 0px;
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  overflow: hidden;
+  z-index: 120;
+  -webkit-mask-image: url("../public/circle.svg");
+  mask-image: url("../public/circle.svg");
+  -webkit-mask-position: var(--figure-mask-x) var(--figure-mask-y);
+  mask-position: var(--figure-mask-x) var(--figure-mask-y);
+  mask-size: var(--figure-mask-radius);
+  mask-repeat: no-repeat;
+  transition: mask-image 0.2s ease, -webkit-mask-image 0.2s ease, background 0.3s ease, mask-size 0.5s ease;
+}
+
+.figure.figure-mask-active {
+  background: rgba(168, 85, 247, 1);
+  transition: background 0.3s ease, mask-size 0.5s ease;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.figure img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .scroll-progress {
