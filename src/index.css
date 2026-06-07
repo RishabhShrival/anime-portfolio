@@ -40,7 +40,7 @@ body,
   min-height: 100vh;
   margin: 0;
   scrollbar-width: none;
-  cursor: none;
+  /* cursor: none; */
 }
 
 body::-webkit-scrollbar {
@@ -125,50 +125,30 @@ h6 {
   align-items: center;
 }
 
-.cursor-cover {
-  position: fixed;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  pointer-events: none;
-  left: 0;
-  top: 0;
-  opacity: 0;
-  transform: translate3d(var(--cursor-x, 0px), var(--cursor-y, 0px), 0) translate(-50%, -50%);
-  will-change: transform;
-}
-
 .figure {
   --figure-mask-x: 50%;
   --figure-mask-y: 50%;
   --figure-mask-radius: 0px;
   --figure-mask-feather: 0px;
-  background: transparent;
-  border-color: transparent;
-  box-shadow: none;
-  overflow: hidden;
-  z-index: 120;
-  -webkit-mask-image: url("../public/circle.svg");
-  mask-image: url("../public/circle.svg");
-  -webkit-mask-position: var(--figure-mask-x) var(--figure-mask-y);
+  -webkit-mask-image: radial-gradient(circle var(--figure-mask-radius) at var(--figure-mask-x) var(--figure-mask-y),
+      transparent 0%,
+      transparent 100%,
+      black 100%);
+  mask-image: radial-gradient(circle var(--figure-mask-radius) at var(--figure-mask-x) var(--figure-mask-y),
+      transparent 0%,
+      transparent 100%,
+      black 100%);
+  /* -webkit-mask-position: var(--figure-mask-x) var(--figure-mask-y);
   mask-position: var(--figure-mask-x) var(--figure-mask-y);
-  mask-size: var(--figure-mask-radius);
+  mask-size: var(--figure-mask-radius); */
   mask-repeat: no-repeat;
-  transition: mask-image 0.2s ease, -webkit-mask-image 0.2s ease, background 0.3s ease, mask-size 0.5s ease;
+  transition: mask-image 0.3s ease, -webkit-mask-image 0.3s ease;
 }
 
 .figure.figure-mask-active {
-  background: rgba(168, 85, 247, 1);
-  transition: background 0.3s ease, mask-size 0.5s ease;
-  border-color: transparent;
-  box-shadow: none;
+  transition: mask-image 0.3s ease, -webkit-mask-image 0.3s ease;
 }
 
-.figure img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
 
 .scroll-progress {
   position: fixed;

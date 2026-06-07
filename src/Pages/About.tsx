@@ -2,6 +2,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { SplitText, ScrollTrigger } from "gsap/all";
 import { useEffect, useRef, useState } from "react";
+import AboutHero from "./AboutHero";
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
@@ -76,32 +77,9 @@ export default function About() {
   };
 
   useEffect(() => {
-      const cursorCover = document.querySelector(".cursor-cover") as HTMLElement | null;
       const figure = document.querySelector(".figure") as HTMLElement | null;
-      let cursorFrame = 0;
-      let cursorX = 0;
-      let cursorY = 0;
       let figureRadius = 0;
-
   
-      const updateCursor = () => {
-        if (cursorCover) {
-          cursorCover.style.setProperty("--cursor-x", `${cursorX}px`);
-          cursorCover.style.setProperty("--cursor-y", `${cursorY}px`);
-        }
-        cursorFrame = 0;
-      };
-  
-      
-  
-      const onMouseMove = (event: MouseEvent) => {
-        cursorX = event.clientX;
-        cursorY = event.clientY;
-  
-        if (!cursorFrame) {
-          cursorFrame = window.requestAnimationFrame(updateCursor);
-        }
-      };
   
   
       const syncFigureMask = (event: MouseEvent) => {
@@ -111,34 +89,24 @@ export default function About() {
         const relativeX = event.clientX - rect.left;
         const relativeY = event.clientY - rect.top;
   
-        figure.style.setProperty("--figure-mask-x", `${relativeX - figureRadius/2}px`);
-        figure.style.setProperty("--figure-mask-y", `${relativeY - figureRadius/2}px`);
+        figure.style.setProperty("--figure-mask-x", `${relativeX}px`);
+        figure.style.setProperty("--figure-mask-y", `${relativeY}px`);
       };
   
       const activateFigureMask = (event: MouseEvent) => {
-        if (!figure || !cursorCover) return;
-        figureRadius = 400;
+        if (!figure) return;
+        figureRadius = 180;
         syncFigureMask(event);
         figure.classList.add("figure-mask-active");
-        cursorCover.style.setProperty("background", "rgba(168, 85, 247, 1)");
-        cursorCover.style.setProperty("width", "500px");
-        cursorCover.style.setProperty("height", "500px");
-        cursorCover.style.setProperty("transition", "background 0.3s ease, width 0.3s ease, height 0.3s ease");
-        cursorCover.style.setProperty("z-index", "10");
         figure.style.setProperty("--figure-mask-radius", `${figureRadius}px`);
         figure.style.setProperty("--figure-mask-feather", "0px");
       };
   
       const deactivateFigureMask = (event: MouseEvent) => {
-        if (!figure || !cursorCover) return;
+        if (!figure) return;
         figureRadius = 0;
         syncFigureMask(event);
         figure.classList.remove("figure-mask-active");
-        cursorCover.style.setProperty("width", "18px");
-        cursorCover.style.setProperty("height", "18px");
-        cursorCover.style.setProperty("background", "rgba(168, 85, 247, 0)");
-        cursorCover.style.setProperty("transition", "background 0.3s ease , width 0.3s ease, height 0.3s ease");
-        cursorCover.style.setProperty("z-index", "10");
         figure.style.setProperty("--figure-mask-radius", `${figureRadius}px`);
         figure.style.setProperty("--figure-mask-feather", "0px");
       };
@@ -146,24 +114,19 @@ export default function About() {
       figure?.addEventListener("mouseenter", activateFigureMask as EventListener);
       figure?.addEventListener("mousemove", syncFigureMask as EventListener);
       figure?.addEventListener("mouseleave", deactivateFigureMask);
-  
-      window.addEventListener("mousemove", onMouseMove);
+
   
       return () => {
-        window.removeEventListener("mousemove", onMouseMove);
         figure?.removeEventListener("mouseenter", activateFigureMask as EventListener);
         figure?.removeEventListener("mousemove", syncFigureMask as EventListener);
         figure?.removeEventListener("mouseleave", deactivateFigureMask as EventListener);
-          if (cursorFrame) {
-            window.cancelAnimationFrame(cursorFrame);
-          }
       };
     }, []);
   
 
   return (
     <section id="about" className="relative w-screen h-screen px-20 pt-20 flex gap-10 overflow-hidden" onClick={animateText}>
-      <div className="w-3/5 py-8">
+      <div className="w-3/5 py-8 z-10">
         <p className="jp-label mb-3">自己紹介 • Self Introduction</p>
         <p id="About-title" className="titleText">Hi, I am <span className="grad-text">Rishabh</span></p>
 
@@ -200,15 +163,11 @@ export default function About() {
         </div>
 
       </div>
-      <div className="opacity-70 absolute bottom-10 left-1/2 transform -translate-x-1/2 text-sm text-[var(--text-secondary)] cursor-default select-none">
+      <div className="opacity-70 absolute bottom-10 left-1/2 transform -translate-x-1/2 text-sm text-[var(--text-secondary)] cursor-default select-none z-10">
         click to view more
       </div>
-
-      <div className="cursor-cover"/>
-      <div className="flex-1/5 items-center justify-center">
-        <div className="neo-card rounded-3xl p-3">
-          <img src="/portfolio-anime.png" alt="anime developer" className="figure h-full object-contain" />
-        </div>
+      <div className="z-0">
+        <AboutHero/>
       </div>
     </section>
   );
