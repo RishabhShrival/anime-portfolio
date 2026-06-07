@@ -126,7 +126,7 @@ export default function About() {
 
   return (
     <section id="about" className="relative w-screen h-screen px-20 pt-20 flex gap-10 overflow-hidden" onClick={animateText}>
-      <div className="w-3/5 py-8 z-10">
+      <div className="w-3/5 py-8 z-10 pointer-events-none">
         <p className="jp-label mb-3">自己紹介 • Self Introduction</p>
         <p id="About-title" className="titleText">Hi, I am <span className="grad-text">Rishabh</span></p>
 

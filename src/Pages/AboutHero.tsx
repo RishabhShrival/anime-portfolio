@@ -13,8 +13,8 @@ export default function AboutHero() {
 
     const hero = heroRef.current;
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
 
+    const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     const TRAIL_LENGTH = 70;
@@ -22,15 +22,23 @@ export default function AboutHero() {
 
     const bottom = new Image();
     const top = new Image();
+    const top1 = new Image();
 
     bottom.src = "/portfolio-anime-cover.png";
     top.src = "/portfolio-anime.png";
+    top1.src = "/portfolio-anime.png";
 
-    // Reusable offscreen canvas
-    const offscreen = document.createElement("canvas");
-    const off = offscreen.getContext("2d");
+    /* -----------------------------
+       Offscreen Canvases
+    ----------------------------- */
 
-    if (!off) return;
+    const maskCanvas = document.createElement("canvas");
+    const maskCtx = maskCanvas.getContext("2d");
+
+    const revealCanvas = document.createElement("canvas");
+    const revealCtx = revealCanvas.getContext("2d");
+
+    if (!maskCtx || !revealCtx) return;
 
     const getImageParams = (
       img: HTMLImageElement,
@@ -60,11 +68,15 @@ export default function AboutHero() {
       canvas.width = hero.offsetWidth;
       canvas.height = hero.offsetHeight;
 
-      offscreen.width = canvas.width;
-      offscreen.height = canvas.height;
+      maskCanvas.width = canvas.width;
+      maskCanvas.height = canvas.height;
+
+      revealCanvas.width = canvas.width;
+      revealCanvas.height = canvas.height;
     };
 
     resize();
+
     window.addEventListener("resize", resize);
 
     const onMove = (e: MouseEvent) => {
@@ -83,14 +95,16 @@ export default function AboutHero() {
     const draw = () => {
       const { width, height } = canvas;
 
-      // Smooth cursor
+      /* -----------------------------
+         Smooth Cursor
+      ----------------------------- */
+
       const s = smoothRef.current;
       const m = mouseRef.current;
 
       s.x += (m.x - s.x) * 0.13;
       s.y += (m.y - s.y) * 0.13;
 
-      // Update trail
       trailRef.current.unshift({
         x: s.x,
         y: s.y,
@@ -102,39 +116,51 @@ export default function AboutHero() {
 
       const trail = trailRef.current;
 
-      // Clear canvases
+      /* -----------------------------
+         Clear
+      ----------------------------- */
+
       ctx.clearRect(0, 0, width, height);
-      off.clearRect(0, 0, width, height);
+      maskCtx.clearRect(0, 0, width, height);
+      revealCtx.clearRect(0, 0, width, height);
+      revealCtx.fillStyle = "rgba(256,256,256,0.2";
+      revealCtx.fillRect(0, 0, width, height);
 
-      /* ==========================
-         BOTTOM LAYER
-      ========================== */
+      /* -----------------------------
+         Bottom Layer
+      ----------------------------- */
 
-      // ctx.fillStyle = "rgba(255,0,0,0.8)";
-      // ctx.fillRect(0, 0, width, height);
-
-      const bParams = getImageParams(
+      const bottomParams = getImageParams(
         bottom,
         width,
         height,
         "right"
       );
 
-      ctx.globalAlpha = 0.5;
+      ctx.globalAlpha = 0.4;
+
 
       ctx.drawImage(
         bottom,
-        bParams.dx,
-        bParams.dy,
-        bParams.dw,
-        bParams.dh
+        bottomParams.dx,
+        bottomParams.dy,
+        bottomParams.dw,
+        bottomParams.dh
+      );
+
+      ctx.drawImage(
+        bottom,
+        bottomParams.dx - 400,
+        bottomParams.dy,
+        bottomParams.dw,
+        bottomParams.dh
       );
 
       ctx.globalAlpha = 1;
 
-      /* ==========================
-         MASK TRAIL
-      ========================== */
+      /* -----------------------------
+         Draw Mask Trail
+      ----------------------------- */
 
       for (let i = 0; i < trail.length; i++) {
         const t = 1 - i / trail.length;
@@ -144,9 +170,9 @@ export default function AboutHero() {
 
         const alpha = Math.pow(t, 1.5);
 
-        off.beginPath();
+        maskCtx.beginPath();
 
-        off.arc(
+        maskCtx.arc(
           trail[i].x,
           trail[i].y,
           radius,
@@ -154,45 +180,70 @@ export default function AboutHero() {
           Math.PI * 2
         );
 
-        off.fillStyle = `rgba(255,255,255,${alpha})`;
+        maskCtx.fillStyle = `rgba(255,255,255,${alpha})`;
 
-        off.fill();
+        maskCtx.fill();
       }
 
-      /* ==========================
-         REVEAL LAYER
-      ========================== */
+      /* -----------------------------
+         Draw Reveal Images
+      ----------------------------- */
 
-      off.globalCompositeOperation = "source-in";
-
-      // Full-screen reveal color
-      off.fillStyle = "rgba(0,40,255,0.8)";
-      off.fillRect(0, 0, width, height);
-
-      // Top image
-      const tParams = getImageParams(
+      const topParams = getImageParams(
         top,
         width,
         height,
         "right"
       );
 
-      off.drawImage(
-        top,
-        tParams.dx,
-        tParams.dy,
-        tParams.dw,
-        tParams.dh
+      const top1Params = getImageParams(
+        top1,
+        width,
+        height,
+        "right"
       );
-      
 
-      off.globalCompositeOperation = "source-over";
+      revealCtx.drawImage(
+        top,
+        topParams.dx,
+        topParams.dy,
+        topParams.dw,
+        topParams.dh
+      );
 
-      /* ==========================
-         DRAW REVEAL
-      ========================== */
+      revealCtx.drawImage(
+        top1,
+        top1Params.dx - 400,
+        top1Params.dy,
+        top1Params.dw,
+        top1Params.dh
+      );
 
-      ctx.drawImage(offscreen, 0, 0);
+      /* -----------------------------
+         Apply Mask
+      ----------------------------- */
+
+      revealCtx.globalCompositeOperation =
+        "destination-in";
+
+      revealCtx.drawImage(
+        maskCanvas,
+        0,
+        0
+      );
+
+      revealCtx.globalCompositeOperation =
+        "source-over";
+
+      /* -----------------------------
+         Draw Final Reveal
+      ----------------------------- */
+
+      ctx.drawImage(
+        revealCanvas,
+        0,
+        0
+      );
 
       rafId = requestAnimationFrame(draw);
     };
@@ -202,17 +253,25 @@ export default function AboutHero() {
     const onLoad = () => {
       loaded++;
 
-      if (loaded === 2) {
+      if (loaded === 3) {
         draw();
       }
     };
 
     bottom.onload = onLoad;
     top.onload = onLoad;
+    top1.onload = onLoad;
 
     return () => {
-      hero.removeEventListener("mousemove", onMove);
-      window.removeEventListener("resize", resize);
+      hero.removeEventListener(
+        "mousemove",
+        onMove
+      );
+
+      window.removeEventListener(
+        "resize",
+        resize
+      );
 
       cancelAnimationFrame(rafId);
     };
@@ -225,7 +284,7 @@ export default function AboutHero() {
     >
       <canvas
         ref={canvasRef}
-        className="w-full h-full"
+        className="w-screen h-screen"
       />
     </div>
   );
