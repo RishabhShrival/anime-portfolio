@@ -7,13 +7,13 @@ import { listOfProjects } from "../constants";
 gsap.registerPlugin(SplitText);
 
 export default function RotatingCarousel() {
-  const radius = 250;
 
   const rotationTween = useRef<gsap.core.Tween | null>(null);
   const titleTimeline3 = useRef<gsap.core.Timeline | null>(null);
   const selectedProjectIndex = useRef(0);
   const [topicTitle, setTopicTitle] = useState("Projects");
   const activeProjectIndex = selectedProjectIndex.current >= 0 ? selectedProjectIndex.current : 0;
+  let radius = window.innerWidth < 768 ? 150 : 250;
 
 
 
@@ -22,7 +22,6 @@ export default function RotatingCarousel() {
   useGSAP(() => {
     const items = gsap.utils.toArray(".orbit-item") as HTMLElement[];
     const total = items.length;
-
     items.forEach((item, i) => {
       const angle = (360 / total) * i - 90;
       gsap.set(item, {
@@ -56,9 +55,17 @@ export default function RotatingCarousel() {
     titleTimeline3.current = gsap.timeline();
         // Exit animation (old chars)
     titleTimeline3.current.to(
+      ".BlurRef",
+      {
+        zIndex: 10,
+        backdropFilter: "blur(8px)",
+        duration: 0.5
+      }
+    );
+    titleTimeline3.current.to(
       ".topic",
       {
-        y: -window.innerHeight + 300,
+        y: (window.innerWidth < 768)? -window.innerHeight + window.innerHeight/3 : -window.innerHeight/2,
         scale: 1.2,
         duration: 0.75,
         stagger: 0.04,
@@ -89,13 +96,14 @@ export default function RotatingCarousel() {
         reset();
     }
     selectedProjectIndex.current = index;
-    rotationTween.current?.pause();
+    setTopicTitle(listOfProjects[index].title);
+    // rotationTween.current?.pause();
     showProjectsDetail();
 
   };
 
   const reset = () => {
-    rotationTween.current?.resume();
+    // rotationTween.current?.resume();
     titleTimeline3.current?.reverse();
     setTopicTitle("Projects");
     selectedProjectIndex.current = -1;
@@ -143,24 +151,24 @@ const labelHide = (index: number) => {
 
 
   return (
-    <div className="w-full h-full relative">
-      <div className="project-detail top-1/5 w-full absolute p-8 gap-10 flex justify-between z-10 pointer-events-none">
+    <div className="w-screen h-screen relative">
+      <div className="project-detail bottom-0 w-screen absolute p-8 gap-3 md:gap-10 flex justify-between z-20 pointer-events-none">
         <div className="project-detail-l flex flex-col justify-between m-0 p-10 transform -translate-x-full">
-          <div className="text-2xl font-bold m-0 mb-4 p-10 rounded-lg pointer-events-auto" onClick={() => topPannelProject(activeProjectIndex, 0)}>
+          <div className="text-2xl font-bold m-0 mb-4 p-2 md:p-10 rounded-lg pointer-events-auto" onClick={() => topPannelProject(activeProjectIndex, 0)}>
             <h3>{listOfProjects[activeProjectIndex].projects[0].title}</h3>
             <p className="text-base text-[var(--text-secondary)]">{listOfProjects[activeProjectIndex].projects[0].details}</p>
           </div>
-          <div className="text-2xl font-bold m-0 mb-4 p-10 rounded-lg pointer-events-auto" onClick={() => topPannelProject(activeProjectIndex, 1)}>
+          <div className="text-2xl font-bold m-0 mb-4 p-2 md:p-10 rounded-lg pointer-events-auto" onClick={() => topPannelProject(activeProjectIndex, 1)}>
             <h3>{listOfProjects[activeProjectIndex].projects[1].title}</h3>
             <p className="text-base text-[var(--text-secondary)]">{listOfProjects[activeProjectIndex].projects[1].details}</p>
           </div>
         </div>
         <div className="project-detail-r flex flex-col justify-between m-0 p-10 transform translate-x-full">
-          <div className="text-2xl font-bold m-0 mb-4 p-10 rounded-lg pointer-events-auto" onClick={() => topPannelProject(activeProjectIndex, 2)}>
+          <div className="text-2xl font-bold m-0 mb-4 p-2 md:p-10 rounded-lg pointer-events-auto" onClick={() => topPannelProject(activeProjectIndex, 2)}>
             <h3>{listOfProjects[activeProjectIndex].projects[2].title}</h3>
             <p className="text-base text-[var(--text-secondary)]">{listOfProjects[activeProjectIndex].projects[2].details}</p>
           </div>
-          <div className="text-2xl font-bold m-0 mb-4 p-10 rounded-lg pointer-events-auto" onClick={() => topPannelProject(activeProjectIndex, 3)}>
+          <div className="text-2xl font-bold m-0 mb-4 p-2 md:p-10 rounded-lg pointer-events-auto" onClick={() => topPannelProject(activeProjectIndex, 3)}>
             <h3>{listOfProjects[activeProjectIndex].projects[3].title}</h3>
             <p className="text-base text-[var(--text-secondary)]">{listOfProjects[activeProjectIndex].projects[3].details}</p>
           </div>
@@ -168,11 +176,12 @@ const labelHide = (index: number) => {
       </div>
       
       {/* CAROUSEL */}
-      <div className="absolute bottom-0 w-screen h-1/2 flex justify-center">
-          <h2 className="topic absolute z-10 text-2xl md:text-5xl font-extrabold text-white drop-shadow-lg pointer-events-none bottom-10">
-                {topicTitle}
-          </h2>
-        <div className="circle-container aspect-square w-screen md:h-screen md:w-auto rounded-full flex items-center justify-center">
+      <div className="absolute OriginCenter top-full left-1/2 flex justify-center">
+        <div className="BlurRef absolute transform -translate-y-1/2 w-screen h-screen pointer-events-auto"/>
+        <h2 className="topic absolute top-2/5 z-10 text-2xl md:text-5xl font-extrabold text-white drop-shadow-lg pointer-events-none">
+          {topicTitle}
+        </h2>
+        <div className="circle-container aspect-square w-screen h-auto md:h-screen md:w-auto rounded-full flex items-center justify-center">
 
           {listOfProjects.map((project, index) => (
             <div
@@ -188,8 +197,8 @@ const labelHide = (index: number) => {
 
               <img src={project.icon} alt={project.title} className="hover:scale-110 hover:brightness-110 bg-white/95 transition-transform duration-300 w-full h-full object-contain rounded-full p-2" 
               onClick={() => showProject(index)}
-              onMouseEnter={() => {setTopicTitle(project.title); selectedProjectIndex.current=index; labelPop(index);}}
-              onMouseLeave={() => {setTopicTitle("Projects"); selectedProjectIndex.current=-1; labelHide(index);}}
+              onMouseEnter={() => {selectedProjectIndex.current=index; labelPop(index);}}
+              onMouseLeave={() => {selectedProjectIndex.current=-1; labelHide(index);}}
               />
               
             </div>

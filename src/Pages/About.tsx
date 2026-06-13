@@ -1,8 +1,9 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { SplitText, ScrollTrigger } from "gsap/all";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import AboutHero from "./AboutHero";
+import { AboutSubtitles } from "../constants";
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
@@ -76,90 +77,22 @@ export default function About() {
     setIndex(next);
   };
 
-  useEffect(() => {
-      const figure = document.querySelector(".figure") as HTMLElement | null;
-      let figureRadius = 0;
-  
-  
-  
-      const syncFigureMask = (event: MouseEvent) => {
-        if (!figure) return;
-  
-        const rect = figure.getBoundingClientRect();
-        const relativeX = event.clientX - rect.left;
-        const relativeY = event.clientY - rect.top;
-  
-        figure.style.setProperty("--figure-mask-x", `${relativeX}px`);
-        figure.style.setProperty("--figure-mask-y", `${relativeY}px`);
-      };
-  
-      const activateFigureMask = (event: MouseEvent) => {
-        if (!figure) return;
-        figureRadius = 180;
-        syncFigureMask(event);
-        figure.classList.add("figure-mask-active");
-        figure.style.setProperty("--figure-mask-radius", `${figureRadius}px`);
-        figure.style.setProperty("--figure-mask-feather", "0px");
-      };
-  
-      const deactivateFigureMask = (event: MouseEvent) => {
-        if (!figure) return;
-        figureRadius = 0;
-        syncFigureMask(event);
-        figure.classList.remove("figure-mask-active");
-        figure.style.setProperty("--figure-mask-radius", `${figureRadius}px`);
-        figure.style.setProperty("--figure-mask-feather", "0px");
-      };
-  
-      figure?.addEventListener("mouseenter", activateFigureMask as EventListener);
-      figure?.addEventListener("mousemove", syncFigureMask as EventListener);
-      figure?.addEventListener("mouseleave", deactivateFigureMask);
-
-  
-      return () => {
-        figure?.removeEventListener("mouseenter", activateFigureMask as EventListener);
-        figure?.removeEventListener("mousemove", syncFigureMask as EventListener);
-        figure?.removeEventListener("mouseleave", deactivateFigureMask as EventListener);
-      };
-    }, []);
-  
-
   return (
-    <section id="about" className="relative w-screen h-screen px-20 pt-20 flex gap-10 overflow-hidden" onClick={animateText}>
-      <div className="w-3/5 py-8 z-10 pointer-events-none">
+    <section id="about" className="relative w-screen h-screen px-10 md:px-20 pt-20 flex gap-10 overflow-hidden" onClick={animateText}>
+      <div className="w-auto md:w-3/5 py-8 z-10 pointer-events-none absolute bottom-0 md:relative md:bottom-auto left-auto">
         <p className="jp-label mb-3">自己紹介 • Self Introduction</p>
         <p id="About-title" className="titleText">Hi, I am <span className="grad-text">Rishabh</span></p>
 
-        <div className="text-white/90 text-lg min-h-[220px] neo-card rounded-3xl p-8">
-          <div className="about-subtitle">
-            I am a tech-driven person who loves building, experimenting, and figuring out how things work. 
-            Pretty chill by nature, but I get deeply focused when solving problems or coding. 
-            I am into software, new technologies, and hands-on projects that challenge me. 
-            In my free time, you will usually find me coding, learning something new, or tinkering with ideas.
-          </div>
-
-          <div className="about-subtitle">
-            <span className="block text-2xl font-bold mb-2">School</span>
-            Schooling in Jawahar Navodaya Vidhyalaya Khandwa (Madhya Pradesh) 
-            where I developed a strong foundation in science and mathematics 
-            and Secured 93.2% in 10th and 93% in 12th board exams.
-          </div>
-
-          <div className="about-subtitle">
-            <span className="block text-2xl font-bold mb-2">College</span>
-            Completed my B.Tech in Data Science Engineering from the prestigious Indian Institute of Technology, Mandi.
-            Here, I honed my skills in data analysis, machine learning,
-             and software development while engaging in various projects and research.
-             Graduated with a CGPA of 8.03 out of 10.
-          </div>
-
-          <div className="about-subtitle">
-            <span className="block text-2xl font-bold mb-2">Semester Exchange</span>
-            Had the incredible opportunity to be a semester exchange student at Kyushu University in Japan. 
-            This experience broadened my horizons, exposing me to new cultures and academic perspectives. 
-            It was a transformative period that enriched both my personal and professional growth. 
-            Secured a GPA of 9.65/10 during my exchange semester.          
-          </div>
+        <div className="text-white/90 text-sm md:text-lg min-h-[220px] neo-card rounded-3xl p-8">
+          {AboutSubtitles.map((subtitle, i) => (
+            <div
+              key={i}
+              className={`about-subtitle ${i === 0 ? "block" : "none"}`}
+            >
+              <span className="block text-2xl font-bold mb-2">{subtitle.title}</span>
+              {subtitle.text}
+            </div>
+          ))}
         </div>
 
       </div>

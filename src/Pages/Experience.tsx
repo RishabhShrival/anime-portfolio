@@ -45,7 +45,7 @@ export default function Experience() {
             <p className="text-lg text-[var(--text-secondary)]">Crafting systems, shipping products, and scaling ideas into real impact.</p>
         </div>
         <div className="flex flex-col w-screen justify-center items-center gap-32">
-          <div className="card neo-exp-card sticky top-40 md:top-60 w-11/12 h-96 p-10 rounded-2xl overflow-hidden">
+          <div className="card neo-exp-card sticky top-60 w-11/12 h-96 p-10 rounded-2xl overflow-hidden">
             <h3 className="text-2xl font-bold mb-4">Software Developer Intern</h3>
             <p className="text-lg text-[var(--text-secondary)]">Tech Company | 2025</p>
             <ul className="list-disc list-inside mt-4">
@@ -55,7 +55,7 @@ export default function Experience() {
               <li>Documented architecture for maintainable handoffs.</li>
             </ul>
           </div>
-          <div className="card neo-exp-card sticky top-60 md:top-80 w-11/12 h-96 p-10 rounded-2xl overflow-hidden">
+          <div className="card neo-exp-card sticky top-80 w-11/12 h-96 p-10 rounded-2xl overflow-hidden">
             <h3 className="text-2xl font-bold mb-4">AI/ML Project Engineer</h3>
             <p className="text-lg text-[var(--text-secondary)]">Research Lab | 2024</p>
             <ul className="list-disc list-inside mt-4">
@@ -64,7 +64,7 @@ export default function Experience() {
               <li>Built experiment dashboards for transparent model tracking.</li>
             </ul>
           </div>
-          <div className="card neo-exp-card sticky top-80 md:top-100 w-11/12 h-96 p-10 rounded-2xl overflow-hidden">
+          <div className="card neo-exp-card sticky top-100 w-11/12 h-96 p-10 rounded-2xl overflow-hidden">
             <h3 className="text-2xl font-bold mb-4">Full Stack Freelancer</h3>
             <p className="text-lg text-[var(--text-secondary)]">Independent | 2023</p>
             <ul className="list-disc list-inside mt-4">
@@ -73,7 +73,7 @@ export default function Experience() {
               <li>Maintained clean UI and smooth micro-interactions.</li>
             </ul>
           </div>
-          <div className="card neo-exp-card sticky top-100 md:top-120 w-11/12 h-96 p-10 rounded-2xl overflow-hidden">
+          <div className="card neo-exp-card sticky top-120 w-11/12 h-96 p-10 rounded-2xl overflow-hidden">
             <h3 className="text-2xl font-bold mb-4">Data Science Associate</h3>
             <p className="text-lg text-[var(--text-secondary)]">Consulting Team | 2022</p>
             <ul className="list-disc list-inside mt-4">
@@ -82,7 +82,7 @@ export default function Experience() {
               <li>Presented findings through clear narratives and visuals.</li>
             </ul>
           </div>
-          <div className="card neo-exp-card sticky top-120 md:top-140 w-11/12 h-96 p-10 rounded-2xl overflow-hidden">
+          <div className="card neo-exp-card sticky top-140 w-11/12 h-96 p-10 rounded-2xl overflow-hidden">
             <h3 className="text-2xl font-bold mb-4">Open Source Contributor</h3>
             <p className="text-lg text-[var(--text-secondary)]">Global Community | Ongoing</p>
             <ul className="list-disc list-inside mt-4">
@@ -91,7 +91,7 @@ export default function Experience() {
               <li>Collaborated across asynchronous teams worldwide.</li>
             </ul>
           </div>
-          <div className="card neo-exp-card sticky top-140 md:top-140 w-11/12 h-20 p-10 rounded-2xl overflow-hidden opacity-0">
+          <div className="card neo-exp-card sticky top-140 w-11/12 h-20 p-10 rounded-2xl overflow-hidden opacity-0">
           </div>
         </div>
     </section>
