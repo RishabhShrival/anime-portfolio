@@ -18,7 +18,7 @@ export default function Hero() {
     const waterBgtl = Gsap.timeline({
       scrollTrigger: {
         trigger: "#Hero",
-        start: "center top",
+        start: "center 30%",
         end: "bottom top",
         scrub: 1.5
       },
@@ -40,6 +40,8 @@ export default function Hero() {
         resolution={256}
         style={{
           display: "absolute",
+          padding: 0,
+          margin: 0,
           backgroundSize: "cover",
           backgroundPosition: "center",
           maskImage: 'url("./solid-circle.png")',
@@ -56,7 +58,7 @@ export default function Hero() {
         {() => (
           <>
           <div>
-            <img src="/anime-night-sky-illustration(1)Front.png" alt="Background" className="absolute inset-0 w-screen h-screen object-cover" />
+            <img src="/anime-night-sky-illustration(1)Front.png" alt="Background" className="absolute bottom-0 left-1/2 transform -translate-x-1/2 object-bottom min-w-7xl" />
           </div>
           <div className="absolute inset-0 z-10 flex flex-col items-center justify-start mt-40 text-center px-4">
             <p className="jp-label mb-5 px-2 !text-blue-50">創造者 • 開発者 • 未来</p>

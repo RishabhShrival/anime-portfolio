@@ -24,8 +24,8 @@ export default function AboutHero() {
     const top = new Image();
     const top1 = new Image();
 
-    bottom.src = "/portfolio-anime-cover.png";
-    top.src = "/portfolio-anime.png";
+    bottom.src = "/portfolio-anime-normal.png";
+    top.src = "/portfolio-anime-aura.png";
     top1.src = "/portfolio-anime.png";
 
     /* -----------------------------
@@ -44,7 +44,8 @@ export default function AboutHero() {
       img: HTMLImageElement,
       cw: number,
       ch: number,
-      align: "left" | "center" | "right" = "center"
+      align: "left" | "center" | "right" = "center",
+      align2: "top" | "center" | "bottom" = "center"
     ) => {
       const iw = img.naturalWidth || img.width;
       const ih = img.naturalHeight || img.height;
@@ -55,11 +56,13 @@ export default function AboutHero() {
       const dh = ih * scale;
 
       let dx = (cw - dw) / 2;
+      let dy = (ch - dh) / 2;
 
       if (align === "right") dx = cw - dw;
       if (align === "left") dx = 0;
+      if (align2 === "top") dy = 0;
+      if (align2 === "bottom") dy = ch - dh;
 
-      const dy = (ch - dh) / 2;
 
       return { dx, dy, dw, dh };
     };
@@ -134,10 +137,11 @@ export default function AboutHero() {
         bottom,
         width,
         height,
-        "right"
+        "right",
+        "top"
       );
 
-      ctx.globalAlpha = 0.4;
+      ctx.globalAlpha = 0.8;
 
 
       ctx.drawImage(
@@ -148,13 +152,13 @@ export default function AboutHero() {
         bottomParams.dh
       );
 
-      ctx.drawImage(
-        bottom,
-        bottomParams.dx - 400,
-        bottomParams.dy,
-        bottomParams.dw,
-        bottomParams.dh
-      );
+      // ctx.drawImage(
+      //   bottom,
+      //   bottomParams.dx - 400,
+      //   bottomParams.dy,
+      //   bottomParams.dw,
+      //   bottomParams.dh
+      // );
 
       ctx.globalAlpha = 1;
 
@@ -193,15 +197,16 @@ export default function AboutHero() {
         top,
         width,
         height,
-        "right"
+        "right",
+        "top"
       );
 
-      const top1Params = getImageParams(
-        top1,
-        width,
-        height,
-        "right"
-      );
+      // const top1Params = getImageParams(
+      //   top1,
+      //   width,
+      //   height,
+      //   "right"
+      // );
 
       revealCtx.drawImage(
         top,
@@ -211,13 +216,13 @@ export default function AboutHero() {
         topParams.dh
       );
 
-      revealCtx.drawImage(
-        top1,
-        top1Params.dx - 400,
-        top1Params.dy,
-        top1Params.dw,
-        top1Params.dh
-      );
+      // revealCtx.drawImage(
+      //   top1,
+      //   top1Params.dx - 400,
+      //   top1Params.dy,
+      //   top1Params.dw,
+      //   top1Params.dh
+      // );
 
       /* -----------------------------
          Apply Mask
@@ -284,7 +289,7 @@ export default function AboutHero() {
     >
       <canvas
         ref={canvasRef}
-        className="w-screen h-screen"
+        className="absolute object-bottom"
       />
     </div>
   );

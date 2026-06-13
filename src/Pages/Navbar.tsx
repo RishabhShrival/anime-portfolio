@@ -45,6 +45,10 @@ export default function Navbar() {
       const offset = window.scrollY + 140;
       let current: HTMLElement | null = null;
       for (let i = sections.length - 1; i >= 0; i -= 1) {
+        if (offset + 300 >= sections[sections.length - 1].offsetTop) {
+          current = sections[sections.length - 1];
+          break;
+        }
         if (sections[i].offsetTop <= offset) {
           current = sections[i];
           break;
@@ -76,7 +80,7 @@ export default function Navbar() {
                 setActiveSection(link.title);
                     gsap.to(window, {
                         scrollTo: `#${link.id}`,
-                        duration: 1,
+                        duration: 2,
                         ease: "power2.out",
                     });
                     }}
