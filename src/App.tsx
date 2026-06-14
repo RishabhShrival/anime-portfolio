@@ -79,7 +79,7 @@ function App() {
     <>
     <div className="scroll-progress"/>
     <div className="neo-cursor"/>
-    <div id="cover" className="fixed h-screen w-screen bg-black opacity-100 top-0 left-0 z-50 pointer-events-none"/>
+    <div id="cover" className="fixed h-screen w-screen bg-black opacity-100 top-0 left-0 z-50 pointer-events-none overflow-x-hidden"/>
      <Navbar/>
      <Hero />
      <About/>
