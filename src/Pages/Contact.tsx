@@ -22,8 +22,8 @@ export default function Contact() {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: ".title",
-        start: "top 95%",
-        end: "bottom bottom",
+        start: "top 93%",
+        end: "bottom 105%",
         scrub: 1.2,
       },
     });
@@ -62,15 +62,15 @@ export default function Contact() {
 
   return (
     <section id="contacts" className="w-screen h-1/3 text-white relative overflow-hidden">
-    <div className="title relative w-screen overflow-hidden p-10 flex flex-row justify-around h-full">    
-      <div className="z-0">
+    <div className="title relative w-screen overflow-hidden p-10 flex flex-col md:flex-row justify-around h-full">    
+      <div className="z-0 flex flex-col items-start justify-center gap-4 mb-10 md:mb-0">
         {/* Main text */}
-        <div className="text-9xl font-bold contact-text opacity-95 relative">
+        <div className="text-2xl md:text-9xl font-bold contact-text opacity-95 relative">
           Let's Connect
         </div>
         {/* Glow layer */}
         <div className="absolute inset-10 pl-30 z-0 pointer-events-none">
-          <h2 className="text-9xl font-bold contact-glow opacity-20 blur-2xl">
+          <h2 className="text-2xl md:text-9xl font-bold contact-glow opacity-20 blur-2xl">
             Let's Connect
           </h2>
         </div>
@@ -78,24 +78,24 @@ export default function Contact() {
       </div>
 
       {/* Icons */}
-      <div className="flex flex-col items-start justify-center gap-8">
-        <button className="social-pill flex flex-row items-center justify-center gap-5 border-none hover:scale-105 transition-transform duration-300 cursor-pointer" onClick={() => {
+      <div className="flex flex-row md:flex-col items-start justify-center gap-3 md:gap-8">
+        <button className="social-pill flex flex-row items-center justify-center gap-2 md:gap-5 border-none hover:scale-105 transition-transform duration-300 cursor-pointer" onClick={() => {
           window.open('https://www.linkedin.com/in/rishabh-shrival-412490225/', '_blank');
         }}>
-          <FontAwesomeIcon icon={faLinkedin} className="scale-200"/>
-          <h3 className="text-3xl font-semibold">LinkedIn</h3>
+          <FontAwesomeIcon icon={faLinkedin} className="scale-100 md:scale-200"/>
+          <h3 className="text-lg md:text-3xl font-semibold">LinkedIn</h3>
         </button>
-        <button className="social-pill flex flex-row items-center justify-center gap-5 hover:scale-105 transition-transform duration-300 border-none cursor-pointer" onClick={() => {
+        <button className="social-pill flex flex-row items-center justify-center gap-2 md:gap-5 border-none hover:scale-105 transition-transform duration-300 cursor-pointer" onClick={() => {
           window.open('https://github.com/RishabhShrival', '_blank');
         }}>
-          <FontAwesomeIcon icon={faGithub} className="scale-200"/>
-          <h3 className="text-3xl font-semibold">GitHub</h3>
+          <FontAwesomeIcon icon={faGithub} className="scale-100 md:scale-200"/>
+          <h3 className="text-lg md:text-3xl font-semibold">GitHub</h3>
         </button>
-        <button className="social-pill flex flex-row items-center justify-center gap-5 hover:scale-105 transition-transform duration-300 border-none cursor-pointer" onClick={() => {
+        <button className="social-pill flex flex-row items-center justify-center gap-2 md:gap-5 border-none hover:scale-105 transition-transform duration-300 cursor-pointer" onClick={() => {
           window.open('mailto:rishabhshrival746@gmail.com', '_blank');
         }}>
-          <FontAwesomeIcon icon={faEnvelope} className="scale-180"/>
-          <h3 className="text-3xl font-semibold">Email</h3>
+          <FontAwesomeIcon icon={faEnvelope} className="scale-100 md:scale-200"/>
+          <h3 className="text-lg md:text-3xl font-semibold">Email</h3>
         </button>
       </div>
     </div>

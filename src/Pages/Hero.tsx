@@ -48,7 +48,7 @@ export default function Hero() {
           maskRepeat: 'no-repeat',
           WebkitMaskRepeat: 'no-repeat',
           maskPosition: `center`,
-          maskSize: '200%',
+          maskSize: window.innerWidth < 768 ? '450%' : '200%',
           borderRadius: '0%',
           scale: 1.1,
           width: "100%",

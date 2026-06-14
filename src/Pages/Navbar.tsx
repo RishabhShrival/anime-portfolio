@@ -68,7 +68,7 @@ export default function Navbar() {
   useEffect(() => {
   gsap.to(".mobile-menu", {
     opacity: menuOpen ? 1 : 0,
-    y: menuOpen ? 0 : -20,
+    x: menuOpen ? 0 : 20,
     duration: 0.35,
     ease: "power3.out",
     pointerEvents: menuOpen ? "auto" : "none",
@@ -77,7 +77,7 @@ export default function Navbar() {
 
   return (
   <nav className="navbar">
-    <div className="nav-container">
+    <div className="nav-container !flex-row">
       <p className="SectionTitle">{activeSection}</p>
 
       {/* Desktop Menu */}

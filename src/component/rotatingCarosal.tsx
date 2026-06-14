@@ -59,13 +59,14 @@ export default function RotatingCarousel() {
       {
         zIndex: 10,
         backdropFilter: "blur(8px)",
+        opacity: 1,
         duration: 0.5
       }
     );
     titleTimeline3.current.to(
       ".topic",
       {
-        y: (window.innerWidth < 768)? -window.innerHeight + window.innerHeight/3 : -window.innerHeight/2,
+        y: (window.innerWidth < 768)? -window.innerHeight + window.innerHeight/4 : -window.innerHeight/2,
         scale: 1.2,
         duration: 0.75,
         stagger: 0.04,
@@ -152,8 +153,8 @@ const labelHide = (index: number) => {
 
   return (
     <div className="w-screen h-screen relative">
-      <div className="project-detail bottom-0 w-screen absolute p-8 gap-3 md:gap-10 flex justify-between z-20 pointer-events-none">
-        <div className="project-detail-l flex flex-col justify-between m-0 p-10 transform -translate-x-full">
+      <div className="project-detail bottom-1/3 md:bottom-0 w-screen absolute p-2 md:p-8 gap-2 md:gap-10 flex justify-between z-20 pointer-events-none">
+        <div className="project-detail-l flex flex-col justify-between m-0 p-4 md:p-8 transform -translate-x-full">
           <div className="text-2xl font-bold m-0 mb-4 p-2 md:p-10 rounded-lg pointer-events-auto" onClick={() => topPannelProject(activeProjectIndex, 0)}>
             <h3>{listOfProjects[activeProjectIndex].projects[0].title}</h3>
             <p className="text-base text-[var(--text-secondary)]">{listOfProjects[activeProjectIndex].projects[0].details}</p>
@@ -163,7 +164,7 @@ const labelHide = (index: number) => {
             <p className="text-base text-[var(--text-secondary)]">{listOfProjects[activeProjectIndex].projects[1].details}</p>
           </div>
         </div>
-        <div className="project-detail-r flex flex-col justify-between m-0 p-10 transform translate-x-full">
+        <div className="project-detail-r flex flex-col justify-between m-0 p-4 md:p-8 transform translate-x-full">
           <div className="text-2xl font-bold m-0 mb-4 p-2 md:p-10 rounded-lg pointer-events-auto" onClick={() => topPannelProject(activeProjectIndex, 2)}>
             <h3>{listOfProjects[activeProjectIndex].projects[2].title}</h3>
             <p className="text-base text-[var(--text-secondary)]">{listOfProjects[activeProjectIndex].projects[2].details}</p>
@@ -177,7 +178,7 @@ const labelHide = (index: number) => {
       
       {/* CAROUSEL */}
       <div className="absolute OriginCenter top-full left-1/2 flex justify-center">
-        <div className="BlurRef absolute transform -translate-y-1/2 w-screen h-screen pointer-events-auto"/>
+        <div className="BlurRef absolute bottom-1/2 w-screen h-screen bg-[rgba(0,0,0,0.4)] opacity-0 pointer-events-auto"/>
         <h2 className="topic absolute top-2/5 z-10 text-2xl md:text-5xl font-extrabold text-white drop-shadow-lg pointer-events-none">
           {topicTitle}
         </h2>

@@ -272,83 +272,84 @@ h6 {
       text-shadow: 0 0 18px rgba(56, 189, 248, 0.25);
     }
   }
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-  
-    .hamburger {
-      display: none;
-      width: 40px;
-      height: 40px;
-      background: transparent;
-      border: none;
-      cursor: pointer;
-  
-      span {
-        display: block;
-        width: 24px;
-        height: 2px;
-        margin: 5px auto;
-        background: white;
-        transition: 0.3s;
-      }
-    }
-  
-    .mobile-menu {
-      position: absolute;
-      top: 70px;
-      right: 10px;
-  
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-  
-      padding: 1.25rem;
-  
-      border-radius: 20px;
-  
-      background: rgba(10, 10, 20, 0.8);
-      backdrop-filter: blur(20px);
-  
-      border: 1px solid rgba(255, 255, 255, 0.08);
-  
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(-20px);
-  
-      transition: all 0.3s ease;
-    }
-  
-    .mobile-menu.open {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-    }
-  
-    .mobile-menu a {
-      color: white;
-      font-size: 1rem;
-    }
-  
-    @media (max-width: 768px) {
-      .desktop-menu {
-        display: none !important;
-      }
-  
-      .hamburger {
-        display: block;
-      }
-  
-      nav>div {
-        padding: 0.75rem 1rem;
-      }
-  
-      .SectionTitle {
-        font-size: 1.3rem;
-      }
-    }
+  .nav-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hamburger {
+  display: none;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+
+  span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    margin: 5px auto;
+    background: white;
+    transition: 0.3s;
+  }
+}
+
+.mobile-menu {
+  position: absolute;
+  top: 80px;
+  right: 10px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  padding: 1.25rem;
+
+  border-radius: 20px;
+
+  background: rgba(10, 10, 20, 0.8);
+  backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20px);
+
+  transition: all 0.3s ease;
+}
+
+.mobile-menu.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.mobile-menu a {
+  color: white;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .desktop-menu {
+    display: none !important;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .nav-container {
+    flex-direction: column;
+  }
+
+  .SectionTitle {
+    font-size: 1.3rem;
+  }
+}
 
   .neo-card {
     background: var(--bg-card);
@@ -461,6 +462,11 @@ h6 {
     background: rgba(255, 255, 255, 0.05);
     padding: 0.8rem 1.4rem;
     transition: all 0.3s ease;
+  }
+  @media (max-width: 768px) {
+    .social-pill {
+      padding: 0.6rem 1.2rem;
+    }
   }
 
   .social-pill:hover {
