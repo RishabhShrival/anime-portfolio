@@ -78,12 +78,12 @@ export default function About() {
   };
 
   return (
-    <section id="about" className="relative w-screen h-screen px-10 md:px-20 pt-20 flex gap-10 overflow-hidden" onClick={animateText}>
-      <div className="w-auto md:w-3/5 py-8 z-10 pointer-events-none absolute bottom-0 md:relative md:bottom-auto left-auto">
+    <section id="about" className="relative w-screen h-screen px-10 md:px-20 pt-20 flex gap-2 md:gap-10 overflow-hidden" onClick={animateText}>
+      <div className="w-auto md:w-3/5 py-8 z-10 pointer-events-none absolute bottom-1/12 md:relative md:bottom-auto left-auto">
         <p className="jp-label mb-3">自己紹介 • Self Introduction</p>
         <p id="About-title" className="titleText">Hi, I am <span className="grad-text">Rishabh</span></p>
 
-        <div className="text-white/90 text-sm md:text-lg min-h-[220px] neo-card rounded-3xl p-8">
+        <div className="text-white/90 text-sm md:text-lg min-h-[300px] neo-card rounded-3xl p-8">
           {AboutSubtitles.map((subtitle, i) => (
             <div
               key={i}

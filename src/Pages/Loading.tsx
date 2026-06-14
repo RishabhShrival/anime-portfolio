@@ -79,11 +79,11 @@ export default function Loading() {
                 className="absolute h-16 w-16 bg-[radial-gradient(circle_at_center,rgba(255,36,36,1)_0%,rgba(200,10,10,0.8)_25%,rgba(0,0,0,0.85)_60%,rgba(0,0,0,1)_100%)] rounded-full shadow-lg"
             ></div>
 
-            <div className='absolute inset-0 flex items-center justify-center'>
+            <div className='absolute OriginCenter top-1/2 left-1/2'>
                 <img
                 id="sharingan"
                 src="./sharingan.png"
-                className="h-64 w-64 z-10 bg-cover rounded-full shadow-lg scale-1"
+                className="aspect-square md:w-64 z-10 bg-cover rounded-full shadow-lg scale-1"
             ></img></div>
 
             {/* Center loading text */}
@@ -95,7 +95,7 @@ export default function Loading() {
             <div className="absolute bottom-20 w-full flex items-center justify-center">
                 <h1
                 id='maskedText'
-                className="text-4xl font-bold"
+                className="text-2xl md:text-4xl font-bold"
                 style={{
                     maskImage: 'url("./solid-circle.png")',
                     maskRepeat: 'no-repeat',
