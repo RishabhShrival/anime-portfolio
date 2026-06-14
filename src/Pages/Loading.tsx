@@ -26,6 +26,7 @@ export default function Loading() {
         const startY = 0;
         const centerX = (viewportWidth / 2) - (ballSize / 2);
         const bottomY = viewportHeight - ballSize;
+        const ballScale = window.innerWidth < 768 ? 1.5 : 5; // Adjust scale based on screen size
 
         Gsap.set('#ball', { x: startX, y: startY, scale: 1 });
         Gsap.set('#sharingan', { scale: 0, rotate: 0 });
@@ -35,14 +36,14 @@ export default function Loading() {
         // Ball X and Y animations
         masterTl.to('#ball', { x: centerX, duration: 3, ease: 'ease.out',delay:2 }, 0);
         masterTl.to('#ball', { y: bottomY / 2, scale: 1.5, duration: 1.5, ease: "bounce.out(5)",delay:2 }, 0);
-        masterTl.to('#ball', { scale: 5, duration: 1, ease: 'power2.out', onComplete: () => { setSharinganAppear(true); } });
-        masterTl.to('#ball', { scale: 30, duration: 1, delay: 2, ease: 'power2.in', onComplete: () => { setAnimationComplete(true); } });
+        masterTl.to('#ball', { scale: ballScale, duration: 1, ease: 'power2.out', onComplete: () => { setSharinganAppear(true); } });
+        masterTl.to('#ball', { scale: ballScale*6, duration: 1, delay: 2, ease: 'power2.in', onComplete: () => { setAnimationComplete(true); } });
 
         masterTl.to('#maskedText', { maskSize: '200%', duration: 1, ease: 'power2.in' }, "<");
 
 
 
-    }, []);
+    });
 
     // Add this useEffect after useGSAP
     useEffect(() => {
