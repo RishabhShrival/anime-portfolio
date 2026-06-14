@@ -41,42 +41,42 @@ export const AboutSubtitles=[
 ]
 
 export const listOfProjects = [
-    { title: "Project 1", icon: "react-1.svg" ,
+    { title: "Machine Learning", icon: "react-1.svg" ,
         projects: [
-            {title:"p1", details:"This is project detail description for project 1.", link:"https://www.google.com"},
-            {title:"p2", details:"This is project detail description for project 2.", link:"https://www.google.com"},
-            {title:"p3", details:"This is project detail description for project 3.", link:"https://www.google.com"},
-            {title:"p4", details:"This is project detail description for project 4.", link:"https://www.google.com"}
+            {title:"Weather Prediction", details:"Weather prediction from image using neural networks", link:"https://github.com/RishabhShrival/weatherPrediction"},
+            {title:"GlucoBreath", details:"Predictict Blood Glucose Levels and Diabetes using breath sample.", link:"https://github.com/RishabhShrival/digital-nose"},
+            {title:"Sketch AI", details:"Mimic hand-drawn sketches using a Generative Adversarial Network (GAN) model.", link:"https://github.com/RishabhShrival/Sketch-AI"},
+            {title:"Suicide Risk Analysis", details:"This project analyzes factors influencing suicidal behavior using machine learning models.", link:"https://github.com/RishabhShrival/Global-health"}
         ]},
-    { title: "Project 2", icon: "unity.svg",
+    { title: "Web/App", icon: "unity.svg",
         projects: [
-            {title:"p1", details:"This is project detail description for project 1.", link:"https://www.google.com"},
-            {title:"p2", details:"This is project detail description for project 2.", link:"https://www.google.com"},
-            {title:"p3", details:"This is project detail description for project 3.", link:"https://www.google.com"},
-            {title:"p4", details:"This is project detail description for project 4.", link:"https://www.google.com"}
+            {title:"video chat app", details:"Peer-to-Peer Video Chat web-application using Simple-Peer and WebRTC ", link:"https://github.com/RishabhShrival/video-chat2-frontend"},
+            {title:"Taskify", details:"CheckList App is a mobile application that allows users to create, manage, and organize tasks within different environments.", link:"https://github.com/RishabhShrival/Task-app"},
+            {title:"Portfolio", details:"Interactive portfolio website showcasing my projects and skills.", link:"https://github.com/RishabhShrival/anime-portfolio"},
+            {title:"Testing tool", details:"Enterprise level Testing tool for CPI and PI/PO systems.", link:"https://github.com/RishabhShrival?tab=repositories"}
         ] },
-    { title: "Project 3", icon: "ML.svg",
+    { title: "Unity", icon: "ML.svg",
         projects: [
-            {title:"p1", details:"This is project detail description for project 1.", link:"https://www.google.com"},
-            {title:"p2", details:"This is project detail description for project 2.", link:"https://www.google.com"},
-            {title:"p3", details:"This is project detail description for project 3.", link:"https://www.google.com"},
-            {title:"p4", details:"This is project detail description for project 4.", link:"https://www.google.com"}
+            {title:"Souls and beyond", details:"a puzzle game that takes you on an exciting trip through the rich and magical realm of Hindu mythology.", link:"https://cg2d-iit-mandi.itch.io/souls-and-beyond"},
+            {title:"Strike 42", details:"Hop into a thrilling survival adventure set in a foreordained grey world", link:"https://cg2d-iit-mandi.itch.io/strike-42"},
+            {title:"Slime Back in Time", details:"A 3D isometric puzzle platformer with a cartoonish charm, incorporating the themes of evolving landscapes, autonomous worlds and digital archaeology.", link:"https://rishabh-shrival.itch.io/slime-back-in-time"},
+            {title:"little fairy", details:"A cute 2D game featuring a young fairy on an adventure in a dragon world.", link:"https://rishabh-shrival.itch.io/little-fairy"}
         ]
      },
-    { title: "Project 4", icon: "unity.svg",
+    { title: "Algorithms", icon: "unity.svg",
         projects: [
-            {title:"p1", details:"This is project detail description for project 1.", link:"https://www.google.com"},
-            {title:"p2", details:"This is project detail description for project 2.", link:"https://www.google.com"},
-            {title:"p3", details:"This is project detail description for project 3.", link:"https://www.google.com"},
-            {title:"p4", details:"This is project detail description for project 4.", link:"https://www.google.com"}
+            {title:"Connect Four Game", details:"Connect Four game implementation in Fortran, featuring customizable settings, advanced computer intelligence, and strategic gameplay mechanics.", link:"https://github.com/RishabhShrival/Fortran-Game"},
+            {title:"restaurant system design", details:"basic system design of an restaurant where you can get all basic facility. code can be used as a refrence for restaurent managment system design.", link:"https://github.com/RishabhShrival/restaurant-system-design"},
+            {title:"Snake Game", details:"A classic snake game implemented in Python with python turtle.", link:"https://github.com/RishabhShrival/snake-game"},
+            {title:"Sudoku Solver", details:"A web application that allows users to upload an image of a Sudoku puzzle, extract the puzzle, edit it if necessary, and solve it. ", link:"https://github.com/RishabhShrival/Sudoku-Solver"}
         ]
      },
-    { title: "Project 5", icon: "ML.svg",
+    { title: "Other", icon: "others.svg",
         projects: [
-            {title:"p1", details:"This is project detail description for project 1.", link:"https://www.google.com"},
-            {title:"p2", details:"This is project detail description for project 2.", link:"https://www.google.com"},
-            {title:"p3", details:"This is project detail description for project 3.", link:"https://www.google.com"},
-            {title:"p4", details:"This is project detail description for project 4.", link:"https://www.google.com"}
+            {title:"Mouse Automation", details:"This project enables control of the mouse using hand gestures captured through a camera.", link:"https://github.com/RishabhShrival/mouse-automation"},
+            {title:"Mail Automation", details:"Automate personalized email drafting using AI for cold mailing.", link:"https://github.com/RishabhShrival?tab=repositories"},
+            {title:"Share it", details:"This project enables users to transfer files over a local Wi-Fi network using a simple and user-friendly interface built with Python and .NET.", link:"https://github.com/RishabhShrival/ShareIt"},
+            {title:"Research Paper", details:"EEG and Behavioral Indicators of Earthquake Response in VR: Role of Information and Task Demands", link:"https://www.researchgate.net/profile/Rishabh-Shrival"}
         ]
      },
   ];
