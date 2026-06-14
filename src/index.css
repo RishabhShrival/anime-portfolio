@@ -40,8 +40,12 @@ body,
   min-height: 100vh;
   margin: 0;
   scrollbar-width: none;
-  overflow-x: hidden;
   /* cursor: none; */
+}
+
+html,
+body {
+  overflow-x: clip;
 }
 
 body::-webkit-scrollbar {

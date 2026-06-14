@@ -42,53 +42,62 @@ export default function Experience() {
         <div className="sticky h-1/5 w-screen top-20 py-10 text-center z-20">
             <p className="jp-label">経験 • Experience</p>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Experience Timeline</h2>
-            <p className="text-base md:text-lg text-[var(--text-secondary)]">Crafting systems, shipping products, and scaling ideas into real impact.</p>
+            <p className="text-base md:text-lg text-[var(--text-secondary)]">Building AI systems, enterprise applications, and data-driven solutions across research and industry.</p>
         </div>
         <div className="flex flex-col w-screen justify-center items-center gap-32">
           <div className="card neo-exp-card sticky top-60 w-11/12 h-80 md:h-96 p-10 rounded-2xl overflow-hidden">
-            <h3 className="text-2xl font-bold mb-4">Software Developer Intern</h3>
-            <p className="text-lg text-[var(--text-secondary)]">Tech Company | 2025</p>
+            <h3 className="text-2xl font-bold mb-4">Advanced App Engineering Analyst</h3>
+            <p className="text-lg text-[var(--text-secondary)]">Accenture • Oct 2025 - Present</p>
             <ul className="list-disc list-inside mt-4">
-              <li>Built performant internal dashboards for real-time operations.</li>
-              <li>Collaborated with product and design on developer tooling.</li>
-              <li>Improved API performance and reduced data latency.</li>
-              <li>Documented architecture for maintainable handoffs.</li>
+              <li className="text-[var(--text-secondary)] text-sm md:text-base">Developing enterprise-grade solutions for large-scale SAP migration projects.</li>
+              <li className="text-[var(--text-secondary)] text-sm md:text-base">Built Agentic AI-powered automation tools to streamline migration workflows.</li>
+              <li className="text-[var(--text-secondary)] text-sm md:text-base">Designed and developed a full-stack XML testing platform for automated comparison and validation.</li>
+              <li className="text-[var(--text-secondary)] text-sm md:text-base">Implemented authentication, REST API integrations, database management, logging, and traceability systems.</li>
             </ul>
           </div>
-          <div className="card neo-exp-card sticky top-80 w-11/12 h-80 md:h-96 p-10 rounded-2xl overflow-hidden">
-            <h3 className="text-2xl font-bold mb-4">AI/ML Project Engineer</h3>
-            <p className="text-lg text-[var(--text-secondary)]">Research Lab | 2024</p>
-            <ul className="list-disc list-inside mt-4">
-              <li>Designed model pipelines for practical deployment scenarios.</li>
-              <li>Automated data-cleaning workflows and feature extraction.</li>
-              <li>Built experiment dashboards for transparent model tracking.</li>
+          <div className="card neo-exp-card sticky top-90 w-11/12 h-80 md:h-96 p-10 rounded-2xl overflow-hidden">
+            <h3 className="text-2xl font-bold mb-2">
+              Data Science Research Intern
+            </h3>
+            <p className="text-lg text-[var(--text-secondary)]">
+              IIT Mandi • May 2024 - Jul 2024
+            </p>
+
+            <ul className="list-disc list-inside mt-4 space-y-2">
+              <li className="text-[var(--text-secondary)] text-sm md:text-base">Optimized machine learning models using Python and PyTorch on time-series medical datasets.</li>
+              <li className="text-[var(--text-secondary)] text-sm md:text-base">Performed feature engineering on data from 552 patient samples.</li>
+              <li className="text-[var(--text-secondary)] text-sm md:text-base">Developed predictive models for early heart disease detection and non-invasive glucose estimation.</li>
+              <li className="text-[var(--text-secondary)] text-sm md:text-base">Achieved 98.2% classification accuracy and 25.4 mg/dL RMSE.</li>
             </ul>
           </div>
-          <div className="card neo-exp-card sticky top-100 w-11/12 h-80 md:h-96 p-10 rounded-2xl overflow-hidden">
-            <h3 className="text-2xl font-bold mb-4">Full Stack Freelancer</h3>
-            <p className="text-lg text-[var(--text-secondary)]">Independent | 2023</p>
-            <ul className="list-disc list-inside mt-4">
-              <li>Delivered modern web products from prototype to production.</li>
-              <li>Integrated backend APIs, auth, and analytics.</li>
-              <li>Maintained clean UI and smooth micro-interactions.</li>
-            </ul>
-          </div>
-          <div className="card neo-exp-card sticky top-120 w-11/12 h-80 md:h-96 p-10 rounded-2xl overflow-hidden">
-            <h3 className="text-2xl font-bold mb-4">Data Science Associate</h3>
-            <p className="text-lg text-[var(--text-secondary)]">Consulting Team | 2022</p>
-            <ul className="list-disc list-inside mt-4">
-              <li>Analyzed datasets to derive strategic business insights.</li>
-              <li>Created reporting pipelines for decision-makers.</li>
-              <li>Presented findings through clear narratives and visuals.</li>
+          <div className="card neo-exp-card sticky top-110 w-11/12 h-80 md:h-96 p-10 rounded-2xl overflow-hidden">
+            <h3 className="text-2xl font-bold mb-2">
+              Brand Ambassador
+            </h3>
+            <p className="text-lg text-[var(--text-secondary)]">
+              Brainwave Science, Japan • Jan 2024 - Jun 2024
+            </p>
+
+            <ul className="list-disc list-inside mt-4 space-y-2">
+              <li className="text-[var(--text-secondary)] text-sm md:text-base">Built an automated outreach system integrated with ChatGPT for personalized communication.</li>
+              <li className="text-[var(--text-secondary)] text-sm md:text-base">Scaled outreach operations to over 100 personalized emails per day.</li>
+              <li className="text-[var(--text-secondary)] text-sm md:text-base">Engaged with 300+ international clients through LinkedIn, email, and calls.</li>
+              <li className="text-[var(--text-secondary)] text-sm md:text-base">Worked with global stakeholders in security and finance sectors.</li>
             </ul>
           </div>
           <div className="card neo-exp-card sticky top-140 w-11/12 h-80 md:h-96 p-10 rounded-2xl overflow-hidden">
-            <h3 className="text-2xl font-bold mb-4">Open Source Contributor</h3>
-            <p className="text-lg text-[var(--text-secondary)]">Global Community | Ongoing</p>
-            <ul className="list-disc list-inside mt-4">
-              <li>Contributed fixes and enhancements to community projects.</li>
-              <li>Reviewed code for quality and long-term maintainability.</li>
-              <li>Collaborated across asynchronous teams worldwide.</li>
+            <h3 className="text-2xl font-bold mb-2">
+              Design Head & Co-Leader
+            </h3>
+            <p className="text-lg text-[var(--text-secondary)]">
+              iHub & HCi Foundation, IIT Mandi • Nov 2022 – Feb 2023
+            </p>
+
+            <ul className="list-disc list-inside mt-4 space-y-2">
+              <li className="text-[var(--text-secondary)] text-sm md:text-base">Led the design and development of a Wall Climber Bot as Design Head.</li>
+              <li className="text-[var(--text-secondary)] text-sm md:text-base">Coordinated cross-functional team activities and project execution.</li>
+              <li className="text-[var(--text-secondary)] text-sm md:text-base">Programmed Arduino-based motion control systems.</li>
+              <li className="text-[var(--text-secondary)] text-sm md:text-base">Successfully achieved a wall-climbing elevation of 60°.</li>
             </ul>
           </div>
           <div className="card neo-exp-card sticky top-140 w-11/12 h-20 p-10 rounded-2xl overflow-hidden opacity-0">
