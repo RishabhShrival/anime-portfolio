@@ -72,7 +72,7 @@ export default function Loading() {
     const viewportHeight = typeof window !== "undefined" ? window.innerHeight : 0;
 
     return (
-        <div className="relative h-screen w-screen overflow-hidden bg-[radial-gradient(circle_at_center,rgba(10,10,20,1)_0%,rgba(0,0,0,1)_100%)]">
+        <div className="relative h-dvh w-screen overflow-hidden bg-[radial-gradient(circle_at_center,rgba(10,10,20,1)_0%,rgba(0,0,0,1)_100%)]">
             {/* Moving ball that acts as mask */}
             <div
                 id="ball"

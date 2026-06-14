@@ -23,7 +23,7 @@ export default function Projects(){
 
     return(
         <section id="projects" className="w-screen h-screen relative overflow-hidden">
-        <div className="absolute top-40 left-1/2 -translate-x-1/2 z-20 text-center pointer-events-none">
+        <div className="absolute top-40 md:top-30 left-1/2 -translate-x-1/2 z-20 text-center pointer-events-none">
           <p className="jp-label">作品 • Projects</p>
           {/* <h2 className="text-4xl md:text-6xl font-extrabold grad-text">Holographic Reactor</h2> */}
         </div>
