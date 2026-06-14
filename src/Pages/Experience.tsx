@@ -41,12 +41,12 @@ export default function Experience() {
         {/* <div className="absolute left-1/2 top-0 h-full w-[2px] bg-gradient-to-b from-cyan-300/70 via-violet-300/40 to-transparent shadow-[0_0_18px_rgba(56,189,248,0.45)] -translate-x-1/2" /> */}
         <div className="sticky h-1/5 w-screen top-20 py-10 text-center z-20">
             <p className="jp-label">経験 • Experience</p>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Experience Timeline</h2>
+            <h2 className="text-2xl md:text-4xl font-bold mb-3">Experience Timeline</h2>
             <p className="text-base md:text-lg text-[var(--text-secondary)]">Building AI systems, enterprise applications, and data-driven solutions across research and industry.</p>
         </div>
         <div className="flex flex-col w-screen justify-center items-center gap-32">
           <div className="card neo-exp-card sticky top-60 w-11/12 h-80 md:h-96 p-10 rounded-2xl overflow-hidden">
-            <h3 className="text-2xl font-bold mb-4">Advanced App Engineering Analyst</h3>
+            <h3 className="text-xl font-bold mb-4">SDE</h3>
             <p className="text-lg text-[var(--text-secondary)]">Accenture • Oct 2025 - Present</p>
             <ul className="list-disc list-inside mt-4">
               <li className="text-[var(--text-secondary)] text-sm md:text-base">Developing enterprise-grade solutions for large-scale SAP migration projects.</li>
@@ -56,8 +56,8 @@ export default function Experience() {
             </ul>
           </div>
           <div className="card neo-exp-card sticky top-90 w-11/12 h-80 md:h-96 p-10 rounded-2xl overflow-hidden">
-            <h3 className="text-2xl font-bold mb-2">
-              Data Science Research Intern
+            <h3 className="text-xl font-bold mb-2">
+              Research Intern
             </h3>
             <p className="text-lg text-[var(--text-secondary)]">
               IIT Mandi • May 2024 - Jul 2024
@@ -71,11 +71,11 @@ export default function Experience() {
             </ul>
           </div>
           <div className="card neo-exp-card sticky top-110 w-11/12 h-80 md:h-96 p-10 rounded-2xl overflow-hidden">
-            <h3 className="text-2xl font-bold mb-2">
-              Brand Ambassador
+            <h3 className="text-xl font-bold mb-2">
+              Internship
             </h3>
             <p className="text-lg text-[var(--text-secondary)]">
-              Brainwave Science, Japan • Jan 2024 - Jun 2024
+              Brainwave Science, Boston USA • Jan 2024 - Jun 2024
             </p>
 
             <ul className="list-disc list-inside mt-4 space-y-2">
@@ -86,11 +86,11 @@ export default function Experience() {
             </ul>
           </div>
           <div className="card neo-exp-card sticky top-140 w-11/12 h-80 md:h-96 p-10 rounded-2xl overflow-hidden">
-            <h3 className="text-2xl font-bold mb-2">
-              Design Head & Co-Leader
+            <h3 className="text-xl font-bold mb-2">
+              Fellowship @ iHub
             </h3>
             <p className="text-lg text-[var(--text-secondary)]">
-              iHub & HCi Foundation, IIT Mandi • Nov 2022 – Feb 2023
+              iHub & HCi Foundation, IIT Mandi • Nov 2022 - Feb 2023
             </p>
 
             <ul className="list-disc list-inside mt-4 space-y-2">
