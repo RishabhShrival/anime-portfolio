@@ -11,6 +11,7 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, SplitText);
 
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState("Home");
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useGSAP(() => {
 
@@ -64,35 +65,82 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  return (
-    <nav className="m-1">
-      <div>
-        {/* Dynamic title */}
-        <p className="SectionTitle">{activeSection}</p>
+  useEffect(() => {
+  gsap.to(".mobile-menu", {
+    opacity: menuOpen ? 1 : 0,
+    y: menuOpen ? 0 : -20,
+    duration: 0.35,
+    ease: "power3.out",
+    pointerEvents: menuOpen ? "auto" : "none",
+  });
+}, [menuOpen]);
 
-        <ul className="flex gap-6">
-          {navLinks.map((link) => (
-            <li key={link.id}>
-                <a
-                    href={`#${link.id}`}
-                    onClick={(e) => {
-                    e.preventDefault();
+  return (
+  <nav className="navbar">
+    <div className="nav-container">
+      <p className="SectionTitle">{activeSection}</p>
+
+      {/* Desktop Menu */}
+      <ul className="desktop-menu">
+        {navLinks.map((link) => (
+          <li key={link.id}>
+            <a
+              href={`#${link.id}`}
+              onClick={(e) => {
+                e.preventDefault();
+
                 setActiveSection(link.title);
-                    gsap.to(window, {
-                        scrollTo: `#${link.id}`,
-                        duration: 2,
-                        ease: "power2.out",
-                    });
-                    }}
-                aria-current={activeSection === link.title ? "page" : undefined}
-                className={activeSection === link.title ? "text-white" : "text-gray-400"}
-                >
-                    {link.title}
-                </a>
-            </li>
-          ))}
-        </ul>
+
+                gsap.to(window, {
+                  scrollTo: `#${link.id}`,
+                  duration: 2,
+                  ease: "power2.out",
+                });
+              }}
+              aria-current={
+                activeSection === link.title ? "page" : undefined
+              }
+            >
+              {link.title}
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      {/* Hamburger */}
+      <button
+        className="hamburger"
+        onClick={() => setMenuOpen(!menuOpen)}
+      >
+        <span />
+        <span />
+        <span />
+      </button>
+
+      {/* Mobile Menu */}
+      <div className={`mobile-menu ${menuOpen ? "open" : ""}`}>
+        {navLinks.map((link) => (
+          <a
+            key={link.id}
+            href={`#${link.id}`}
+            onClick={(e) => {
+              e.preventDefault();
+
+              setMenuOpen(false);
+              setActiveSection(link.title);
+
+              gsap.to(window, {
+                scrollTo: `#${link.id}`,
+                duration: 1.5,
+                ease: "power2.out",
+              });
+            }}
+          >
+            {link.title}
+          </a>
+        ))}
       </div>
-    </nav>
-  );
+    </div>
+  </nav>
+);
 }
