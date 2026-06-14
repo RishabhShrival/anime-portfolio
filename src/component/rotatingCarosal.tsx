@@ -66,7 +66,7 @@ export default function RotatingCarousel() {
     titleTimeline3.current.to(
       ".topic",
       {
-        y: (window.innerWidth < 768)? -window.innerHeight + window.innerHeight/4 : -window.innerHeight*2/3,
+        y: (window.innerWidth < 768)? -window.innerHeight + window.innerHeight/3 : -window.innerHeight*2/3,
         scale: 1.2,
         duration: 0.75,
         stagger: 0.04,

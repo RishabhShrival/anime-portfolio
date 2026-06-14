@@ -83,19 +83,19 @@ export default function Contact() {
           window.open('https://www.linkedin.com/in/rishabh-shrival-412490225/', '_blank');
         }}>
           <FontAwesomeIcon icon={faLinkedin} className="scale-100 md:scale-200"/>
-          <h3 className="text-lg md:text-3xl font-semibold">LinkedIn</h3>
+          <h3 className="text-base md:text-3xl font-semibold">LinkedIn</h3>
         </button>
         <button className="social-pill flex flex-row items-center justify-center gap-2 md:gap-5 border-none hover:scale-105 transition-transform duration-300 cursor-pointer" onClick={() => {
           window.open('https://github.com/RishabhShrival', '_blank');
         }}>
           <FontAwesomeIcon icon={faGithub} className="scale-100 md:scale-200"/>
-          <h3 className="text-lg md:text-3xl font-semibold">GitHub</h3>
+          <h3 className="text-base md:text-3xl font-semibold">GitHub</h3>
         </button>
         <button className="social-pill flex flex-row items-center justify-center gap-2 md:gap-5 border-none hover:scale-105 transition-transform duration-300 cursor-pointer" onClick={() => {
           window.open('mailto:rishabhshrival746@gmail.com', '_blank');
         }}>
           <FontAwesomeIcon icon={faEnvelope} className="scale-100 md:scale-200"/>
-          <h3 className="text-lg md:text-3xl font-semibold">Email</h3>
+          <h3 className="text-base md:text-3xl font-semibold">Email</h3>
         </button>
       </div>
     </div>
