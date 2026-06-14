@@ -153,24 +153,24 @@ const labelHide = (index: number) => {
 
   return (
     <div className="w-screen h-screen relative">
-      <div className="project-detail bottom-1/3 md:bottom-0 w-screen absolute p-2 md:p-8 gap-2 md:gap-10 flex justify-between z-20 pointer-events-none">
+      <div className="project-detail bottom-0 w-screen absolute p-2 md:p-8 gap-2 md:gap-10 flex justify-between z-20 pointer-events-none">
         <div className="project-detail-l flex-1 flex flex-col justify-between m-0 p-4 md:p-8 transform -translate-x-full">
           <div className="h-[180px] md:h-[260px] w-full text-2xl font-bold flex-1 m-0 mb-4 overflow-hidden p-4 md:p-8 rounded-lg pointer-events-auto" onClick={() => topPannelProject(activeProjectIndex, 0)}>
-            <h3>{listOfProjects[activeProjectIndex].projects[0].title}</h3>
+            <h3 className="text-lg md:text-xl">{listOfProjects[activeProjectIndex].projects[0].title}</h3>
             <p className="mt-2 text-sm md:text-base text-[var(--text-secondary)] line-clamp-4 md:line-clamp-6">{listOfProjects[activeProjectIndex].projects[0].details}</p>
           </div>
           <div className="h-[180px] md:h-[260px] w-full text-2xl font-bold flex-1 m-0 mb-4 overflow-hidden p-4 md:p-8 rounded-lg pointer-events-auto" onClick={() => topPannelProject(activeProjectIndex, 1)}>
-            <h3>{listOfProjects[activeProjectIndex].projects[1].title}</h3>
+            <h3 className="text-lg md:text-xl">{listOfProjects[activeProjectIndex].projects[1].title}</h3>
             <p className="mt-2 text-sm md:text-base text-[var(--text-secondary)] line-clamp-4 md:line-clamp-6">{listOfProjects[activeProjectIndex].projects[1].details}</p>
           </div>
         </div>
         <div className="project-detail-r flex-1 flex flex-col justify-between m-0 p-4 md:p-8 transform translate-x-full">
           <div className="h-[180px] md:h-[260px] w-full text-2xl font-bold flex-1 m-0 mb-4 overflow-hidden p-4 md:p-8 rounded-lg pointer-events-auto" onClick={() => topPannelProject(activeProjectIndex, 2)}>
-            <h3>{listOfProjects[activeProjectIndex].projects[2].title}</h3>
+            <h3 className="text-lg md:text-xl">{listOfProjects[activeProjectIndex].projects[2].title}</h3>
             <p className="mt-2 text-sm md:text-base text-[var(--text-secondary)] line-clamp-4 md:line-clamp-6">{listOfProjects[activeProjectIndex].projects[2].details}</p>
           </div>
           <div className="h-[180px] md:h-[260px] w-full text-2xl font-bold flex-1 m-0 mb-4 overflow-hidden p-4 md:p-8 rounded-lg pointer-events-auto" onClick={() => topPannelProject(activeProjectIndex, 3)}>
-            <h3>{listOfProjects[activeProjectIndex].projects[3].title}</h3>
+            <h3 className="text-lg md:text-xl">{listOfProjects[activeProjectIndex].projects[3].title}</h3>
             <p className="mt-2 text-sm md:text-base text-[var(--text-secondary)] line-clamp-4 md:line-clamp-6">{listOfProjects[activeProjectIndex].projects[3].details}</p>
           </div>
         </div>
@@ -187,11 +187,11 @@ const labelHide = (index: number) => {
           {listOfProjects.map((project, index) => (
             <div
               key={index}
-              className="orbit-item absolute w-24 h-24 md:w-32 md:h-32 cursor-pointer"
+              className="orbit-item absolute w-20 h-20 md:w-32 md:h-32 cursor-pointer"
               style={{ transform: `rotate(${72 * index}deg)` }}
             >
-              <div className="label absolute left-1/2 transform -translate-x-1/2 bg-slate-950/80 pb-10 mb-2 px-3 rounded-tl-md opacity-0 -z-10 pointer-events-none border border-white/10">
-                <p className="text-sm text-white whitespace-nowrap">
+              <div className="label absolute left-1/2 transform -translate-x-1/2 bg-slate-950/80 pb-10 mb-2 px-2 rounded-tl-md opacity-0 -z-10 pointer-events-none border border-white/10">
+                <p className="text-xs md:text-sm text-white whitespace-nowrap">
                   {project.title}
                 </p>
               </div>
