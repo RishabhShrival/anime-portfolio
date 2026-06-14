@@ -41,21 +41,21 @@ export const AboutSubtitles=[
 ]
 
 export const listOfProjects = [
-    { title: "Machine Learning", icon: "react-1.svg" ,
+    { title: "Machine Learning", icon: "ML.svg" ,
         projects: [
             {title:"Weather Prediction", details:"Weather prediction from image using neural networks", link:"https://github.com/RishabhShrival/weatherPrediction"},
             {title:"GlucoBreath", details:"Predictict Blood Glucose Levels and Diabetes using breath sample.", link:"https://github.com/RishabhShrival/digital-nose"},
             {title:"Sketch AI", details:"Mimic hand-drawn sketches using a Generative Adversarial Network (GAN) model.", link:"https://github.com/RishabhShrival/Sketch-AI"},
             {title:"Suicide Risk Analysis", details:"This project analyzes factors influencing suicidal behavior using machine learning models.", link:"https://github.com/RishabhShrival/Global-health"}
         ]},
-    { title: "Web/App", icon: "unity.svg",
+    { title: "Web/App", icon: "react-1.svg",
         projects: [
             {title:"video chat app", details:"Peer-to-Peer Video Chat web-application using Simple-Peer and WebRTC ", link:"https://github.com/RishabhShrival/video-chat2-frontend"},
             {title:"Taskify", details:"CheckList App is a mobile application that allows users to create, manage, and organize tasks within different environments.", link:"https://github.com/RishabhShrival/Task-app"},
             {title:"Portfolio", details:"Interactive portfolio website showcasing my projects and skills.", link:"https://github.com/RishabhShrival/anime-portfolio"},
             {title:"Testing tool", details:"Enterprise level Testing tool for CPI and PI/PO systems.", link:"https://github.com/RishabhShrival?tab=repositories"}
         ] },
-    { title: "Unity", icon: "ML.svg",
+    { title: "Unity", icon: "unity.svg",
         projects: [
             {title:"Souls and beyond", details:"a puzzle game that takes you on an exciting trip through the rich and magical realm of Hindu mythology.", link:"https://cg2d-iit-mandi.itch.io/souls-and-beyond"},
             {title:"Strike 42", details:"Hop into a thrilling survival adventure set in a foreordained grey world", link:"https://cg2d-iit-mandi.itch.io/strike-42"},
@@ -63,7 +63,7 @@ export const listOfProjects = [
             {title:"little fairy", details:"A cute 2D game featuring a young fairy on an adventure in a dragon world.", link:"https://rishabh-shrival.itch.io/little-fairy"}
         ]
      },
-    { title: "Algorithms", icon: "unity.svg",
+    { title: "Algorithms", icon: "algo.svg",
         projects: [
             {title:"Connect Four Game", details:"Connect Four game implementation in Fortran, featuring customizable settings, advanced computer intelligence, and strategic gameplay mechanics.", link:"https://github.com/RishabhShrival/Fortran-Game"},
             {title:"restaurant system design", details:"basic system design of an restaurant where you can get all basic facility. code can be used as a refrence for restaurent managment system design.", link:"https://github.com/RishabhShrival/restaurant-system-design"},
