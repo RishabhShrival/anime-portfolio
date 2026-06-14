@@ -14,6 +14,9 @@ export default function Loading() {
         function handleLoad() {
             setLoading(false);
         }
+        if(window.innerWidth < 768) {
+            setLoading(false);
+        }
         window.addEventListener("load", handleLoad);
         return () => window.removeEventListener("load", handleLoad);
     }, []);
@@ -26,7 +29,8 @@ export default function Loading() {
         const startY = 0;
         const centerX = (viewportWidth / 2) - (ballSize / 2);
         const bottomY = viewportHeight - ballSize;
-        const ballScale = window.innerWidth < 768 ? 1.5 : 5; // Adjust scale based on screen size
+        const ballScale = window.innerWidth < 768 ? 4 : 5; // Adjust scale based on screen size
+
 
         Gsap.set('#ball', { x: startX, y: startY, scale: 1 });
         Gsap.set('#sharingan', { scale: 0, rotate: 0 });
