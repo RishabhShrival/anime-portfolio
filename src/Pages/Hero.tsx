@@ -18,7 +18,7 @@ export default function Hero() {
     const waterBgtl = Gsap.timeline({
       scrollTrigger: {
         trigger: "#Hero",
-        start: "center 30%",
+        start: "bottom 50%",
         end: "bottom top",
         scrub: 1.5
       },
